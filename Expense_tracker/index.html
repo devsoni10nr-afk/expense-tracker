@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="checkLogin()">
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+     <h2>💰 Tracker</h2>
+    <div class="menu">
+  <button onclick="toggleMenu()">☰ Menu</button>
+
+  <div id="dropdown" class="dropdown">
+    <button onclick="toggleDark()">🌙 Dark</button>
+    <button onclick="exportExcel()">📤 Export</button>
+    <button onclick="logout()">🚪 Logout</button>
+  </div>
+</div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <h1>Dashboard</h1>
+
+    <!-- Top Cards -->
+    <div class="top">
+      <div class="card">Balance ₹<span id="balance">0</span></div>
+      <div class="card">Income ₹<span id="incomeDisplay">0</span></div>
+      <div class="card">Expense ₹<span id="expenseDisplay">0</span></div>
+      <div class="card">Savings ₹<span id="savingDisplay">0</span></div>
+    </div>
+
+    <!-- FORM GRID -->
+    <div class="grid">
+
+      <div class="box">
+        <h3>Add Expense</h3>
+        <input id="title" placeholder="Title">
+        <input id="amount" placeholder="Amount">
+        <input type="date" id="date">
+        <select id="category">
+          <option>Food</option>
+          <option>Shopping</option>
+          <option>Travel</option>
+        </select>
+        <button onclick="add()">Add</button>
+      </div>
+
+      <div class="box">
+        <h3>Set Income</h3>
+        <input id="income" placeholder="Income">
+        <button onclick="setIncome()">Save</button>
+      </div>
+
+      <div class="box">
+  <h3>Search</h3>
+
+  <input type="text" id="search" onkeyup="searchExpense()" placeholder="Search...">
+
+  <ul id="list"></ul>
+</div>
+
+    </div>
+
+    <!-- CHARTS -->
+    <div class="charts-center">
+
+      <div class="chart-card">
+        <canvas id="pie"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <canvas id="bar"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <canvas id="incomeChart"></canvas>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="bottom-row">
+
+      <div class="box">
+        <h3>AI Insights</h3>
+        <div id="ai"></div>
+      </div>
+
+      <div class="box">
+        <h3>Recent</h3>
+        <ul id="recent"></ul>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
